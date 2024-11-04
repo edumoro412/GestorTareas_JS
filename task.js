@@ -4,6 +4,6 @@ export class Task {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
-    this.completed = completed;
+    this.completed ? completed : false;
   }
 }
