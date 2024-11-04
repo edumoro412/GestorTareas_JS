@@ -1,4 +1,4 @@
-import Task from "./task";
+import { Task } from "./task";
 class TaskService {
   constructor() {
     this.tasks = [];
@@ -30,20 +30,12 @@ class TaskService {
   }
 
   getPendingTask() {
-    for (let i = 0; i < tasks.length; i++) {
-      const lista = [];
-      if ((tasks[i].completed = false)) {
-        lista.push[tasks[i]];
-      }
-    }
+    const lista = [];
+    return this.tasks.filter((task) => !task.completed);
   }
 
   getCompletedTasks() {
     const lista = [];
-    for (let i = 0; i < tasks.length; i++) {
-      if ((tasks[i].completed = true)) {
-        lista.push[tasks[i]];
-      }
-    }
+    return this.tasks.filter((task) => task.completed);
   }
 }
