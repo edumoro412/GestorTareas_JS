@@ -5,7 +5,7 @@ export class TaskService {
     this.nextId = 1;
   }
 
-  addTask(title, description, dueDate, completed) {
+  addTask(title, description, dueDate) {
     const dupli = this.tasks.find((task) => task.title === title);
 
     if (!dupli) {
@@ -14,7 +14,7 @@ export class TaskService {
         title,
         description,
         dueDate,
-        completed
+        false
       );
       this.tasks.push(newTask);
       console.log(`Tarea añadida: ${newTask.title}`);
