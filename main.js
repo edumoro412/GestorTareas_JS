@@ -22,4 +22,11 @@ new Task(4, "Hacer los deberes", "Actualizar el windows", Date(), false);
 
 new Task(5, "Paja", "Tender la cama, tirar la basura", Date(), false);
 
-const Servicios = new TaskService();
+const TaskServices = new TaskService();
+
+console.log(TaskServices.getCompletedTasks());
+
+TaskServices.addTask("Gg", "nada", Date());
+
+TaskServices.removeTask(2);
+console.log(TaskServices.getPendingTask());

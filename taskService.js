@@ -2,14 +2,23 @@ import { Task } from "./task";
 export class TaskService {
   constructor() {
     this.tasks = [];
-    this.nexId = 1;
+    this.nextId = 1;
   }
 
-  addTask(title, description, dueDate) {
-    const newTask = new Task(this.nexId++, title, description, dueDate);
+  addTask(title, description, dueDate, completed) {
+    const dupli = this.tasks.find((task) => task.title === title);
 
-    this.tasks.push(newTask);
-    console.log(`Tarea añadida: ${newTask.title}`);
+    if (!dupli) {
+      const newTask = new Task(
+        this.nextId++,
+        title,
+        description,
+        dueDate,
+        completed
+      );
+      this.tasks.push(newTask);
+      console.log(`Tarea añadida: ${newTask.title}`);
+    }
   }
 
   completeTask(id) {
@@ -17,6 +26,8 @@ export class TaskService {
     if (task) {
       task.completed = true;
       console.log(`La tarea ${task.title} ha sido terminada con exito`);
+    } else {
+      console.log("Esa tarea no existe!");
     }
   }
 
@@ -24,8 +35,10 @@ export class TaskService {
     const index = this.tasks.findIndex((tasks) => tasks.id == id);
 
     if (index !== -1) {
-      console.log(`Tarea: ${tasks[index].title} ha sido eliminada`);
+      console.log(`Tarea: ${this.tasks[index].title} ha sido eliminada`);
       this.tasks.splice(index, 1);
+    } else {
+      console.log("Esa tarea no existe");
     }
   }
 
