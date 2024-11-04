@@ -1,5 +1,5 @@
 import { Task } from "./task";
-class TaskService {
+export class TaskService {
   constructor() {
     this.tasks = [];
     this.nexId = 1;
