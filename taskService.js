@@ -42,7 +42,7 @@ export class TaskService {
     }
   }
 
-  getPendingTask() {
+  getPendingTasks() {
     const lista = [];
     return this.tasks.filter((task) => !task.completed);
   }

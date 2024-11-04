@@ -1,5 +1,4 @@
 import { TaskService } from "./taskService";
-import { Task } from "./task";
 
 const TaskServices = new TaskService();
 
